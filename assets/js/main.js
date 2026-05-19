@@ -1,27 +1,20 @@
-// Reveal on scroll
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-// Soft phone format
-document.querySelectorAll('input[type="tel"]').forEach(input => {
-  input.addEventListener('focus', () => {
-    if (!input.value) input.value = '+7 ';
-  });
-});
-
-
-// Premium subtle parallax
-window.addEventListener('scroll', () => {
-  const y = window.scrollY || 0;
-  document.querySelectorAll('.premium-main-photo').forEach((el, i) => {
-    el.style.transform = `translateY(${Math.max(-6, Math.min(6, y * 0.01))}px)`;
+// Mobile menu
+(function(){
+  var b=document.querySelector('.nav-burger'),n=document.querySelector('.nav');
+  if(!b||!n)return;
+  function set(o){b.setAttribute('aria-expanded',o?'true':'false');n.classList.toggle('open',o);document.body.classList.toggle('nav-open',o);}
+  b.addEventListener('click',function(){set(b.getAttribute('aria-expanded')!=='true');});
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+})();
+// Form -> mailto fallback (owner replaces with real endpoint)
+document.querySelectorAll('form[data-cta]').forEach(function(f){
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=(f.querySelector('[name=name]')||{}).value||'';
+    var p=(f.querySelector('[name=phone]')||{}).value||'';
+    var t=(f.querySelector('[name=time]')||{}).value||'';
+    var s=f.getAttribute('data-subject')||'Заявка с сайта';
+    location.href='mailto:info@bor-dent.ru?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent('Имя: '+n+'\nТелефон: '+p+'\nУдобное время: '+t);
   });
 });
