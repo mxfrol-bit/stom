@@ -216,3 +216,73 @@ a{text-decoration:none;color:inherit} img{display:block;max-width:100%} button,i
   .gallery{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:560px){.steps{grid-template-columns:1fr}.page-hero h1{font-size:28px}.cta-band{padding:28px}}
+
+/* Service hero photo banner */
+.svc-photo{border-radius:22px;overflow:hidden;aspect-ratio:24/10;box-shadow:0 14px 38px rgba(14,58,102,.1);background:#eef4f9}
+.svc-photo img{width:100%;height:100%;object-fit:cover}
+@media (max-width:860px){.svc-photo{aspect-ratio:16/9}}
+
+/* ============================================================
+   PREMIUM HERO 2026 — full-bleed photo, trust signals, motion
+   ============================================================ */
+.phero{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;background:#02162e}
+.phero__bg{position:absolute;inset:0;z-index:0}
+.phero__bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.phero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(2,18,38,.94) 0%,rgba(2,18,38,.82) 38%,rgba(2,18,38,.45) 70%,rgba(2,18,38,.25) 100%)}
+.phero__bg::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(900px 500px at 15% 20%,rgba(15,130,234,.28),transparent 60%);mix-blend-mode:screen}
+.phero__inner{position:relative;z-index:2;width:100%;padding:64px 0}
+.phero .container{max-width:1180px}
+.phero__crumbs{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.62);margin-bottom:22px;letter-spacing:.02em;animation:pheroIn .7s .05s both}
+.phero__crumbs a{color:rgba(255,255,255,.82)}
+.phero__crumbs a:hover{color:#fff}
+.phero__crumbs svg{width:13px;height:13px;opacity:.5}
+.phero__badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;animation:pheroIn .7s .1s both}
+.phero__badge{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px);font-size:12.5px;font-weight:700;color:#fff;letter-spacing:.01em}
+.phero__badge svg{width:15px;height:15px;color:#5fd0e8}
+.phero__badge--rating svg{color:#f5b531}
+.phero h1{margin:0 0 18px;font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-.045em;font-weight:950;color:#fff;max-width:880px;animation:pheroIn .8s .15s both}
+.phero h1 em{font-style:normal;background:linear-gradient(120deg,#5fd0e8,#0f82ea);-webkit-background-clip:text;background-clip:text;color:transparent}
+.phero__sub{margin:0 0 18px;max-width:620px;font-size:clamp(15px,1.4vw,18px);line-height:1.65;color:rgba(255,255,255,.8);font-weight:500;animation:pheroIn .8s .22s both}
+.phero__facts{display:flex;flex-wrap:wrap;gap:12px 30px;margin:0 0 30px;padding:0;list-style:none;animation:pheroIn .8s .28s both}
+.phero__facts li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.9)}
+.phero__facts li svg{width:20px;height:20px;color:#5fd0e8;flex:0 0 auto}
+.phero__actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;animation:pheroIn .8s .35s both}
+.phero__actions .btn--primary{box-shadow:0 14px 34px rgba(15,130,234,.42);font-size:15px;padding:16px 28px}
+.phero__actions .btn--glass{display:inline-flex;align-items:center;gap:9px;padding:15px 24px;border-radius:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;font-weight:700;font-size:15px;backdrop-filter:blur(10px);transition:.22s}
+.phero__actions .btn--glass:hover{background:rgba(255,255,255,.18);transform:translateY(-1px)}
+.phero__actions .btn--glass svg{width:18px;height:18px}
+.phero__phone{display:inline-flex;flex-direction:column;gap:1px;color:#fff;padding-left:6px}
+.phero__phone span{font-size:11px;color:rgba(255,255,255,.55);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.phero__phone a{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.01em}
+.phero__phone a:hover{color:#5fd0e8}
+
+/* Floating glass price/fact card (service heroes) */
+.phero__card{position:absolute;right:0;bottom:42px;z-index:3;width:300px;padding:24px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(18px);box-shadow:0 24px 60px rgba(0,0,0,.34);animation:pheroIn .9s .42s both}
+.phero__card h3{margin:0 0 4px;font-size:13px;font-weight:800;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em}
+.phero__card .big{font-size:34px;font-weight:950;color:#fff;letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+.phero__card .big small{font-size:14px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:0}
+.phero__card ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.phero__card li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.88);line-height:1.4}
+.phero__card li svg{width:16px;height:16px;color:#5fd0e8;flex:0 0 auto;margin-top:1px}
+
+/* Scroll cue */
+.phero__cue{position:absolute;left:48px;bottom:18px;z-index:3;color:rgba(255,255,255,.4);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;animation:pheroIn 1s .6s both}
+align-items:flex-start}
+.phero__cue span{width:1px;height:30px;background:linear-gradient(rgba(255,255,255,.5),transparent);animation:cueDrop 1.8s ease-in-out infinite}
+
+@keyframes pheroIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes cueDrop{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+@media (max-width:1080px){
+  .phero__card{position:static;width:auto;margin-top:30px;backdrop-filter:none;background:rgba(255,255,255,.1)}
+  .phero__cue{display:none}
+}
+@media (max-width:680px){
+  .phero{min-height:auto}
+  .phero__inner{padding:44px 0}
+  .phero h1{font-size:30px}
+  .phero__actions{gap:10px}
+  .phero__actions .btn--primary,.phero__actions .btn--glass{width:100%;justify-content:center}
+  .phero__phone{padding:8px 0 0}
+  .phero__bg::after{background:linear-gradient(180deg,rgba(2,18,38,.9),rgba(2,18,38,.78))}
+}
