@@ -108,6 +108,8 @@
   /* ---------- Скролл: вау-фон + прогресс-бар ---------- */
   function initScrollFx() {
     var progress = document.querySelector('.scroll-progress');
+    var aboutSection = document.querySelector('.about');
+    var aboutCopy = document.querySelector('.about__copy');
     var ticking = false;
     function onScroll() {
       var st = window.pageYOffset || document.documentElement.scrollTop;
@@ -116,6 +118,16 @@
       root.style.setProperty('--hue', (ratio * 140).toFixed(1));
       root.style.setProperty('--sy', (st * 0.12).toFixed(1));
       if (progress) progress.style.width = (ratio * 100).toFixed(2) + '%';
+      /* Параллакс блока «О клинике»: плавно спускается при прокрутке */
+      if (aboutCopy && aboutSection && !reduce && window.innerWidth > 900) {
+        var r = aboutSection.getBoundingClientRect();
+        var vh = window.innerHeight;
+        var p = (vh - r.top) / (vh + r.height);
+        p = p < 0 ? 0 : (p > 1 ? 1 : p);
+        aboutCopy.style.top = ((p - 0.5) * 88).toFixed(1) + 'px';
+      } else if (aboutCopy) {
+        aboutCopy.style.top = '';
+      }
       ticking = false;
     }
     function requestScroll() {
