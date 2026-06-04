@@ -39,6 +39,48 @@
     initPhoneMask();
     initConsultForm();
     setActiveNav();
+    initHashScroll();
+  }
+
+  /* ---------- Якоря (надёжный переход к секции, в т.ч. с другой страницы) ---------- */
+  function initHashScroll() {
+    var header = document.querySelector('.header');
+    function headerOffset() { return (header ? header.getBoundingClientRect().height : 0) + 14; }
+    function scrollToHash(hash, smooth) {
+      if (!hash || hash === '#') return false;
+      var el;
+      try { el = document.querySelector(hash); } catch (e) { return false; }
+      if (!el) return false;
+      var y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset();
+      window.scrollTo({ top: y < 0 ? 0 : y, behavior: smooth ? 'smooth' : 'auto' });
+      return true;
+    }
+    // переход с другой страницы: index.html#about и т.п.
+    if (location.hash) {
+      var h = location.hash;
+      if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+      setTimeout(function () { scrollToHash(h, false); }, 80);
+      window.addEventListener('load', function () { setTimeout(function () { scrollToHash(h, false); }, 60); });
+    }
+    // клики по якорям на текущей странице — плавно и с учётом шапки
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href*="#"]') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      var i = href.indexOf('#');
+      if (i < 0) return;
+      var path = href.slice(0, i);
+      var hash = href.slice(i);
+      if (hash.length < 2) return;
+      var here = (location.pathname.split('/').pop() || 'index.html');
+      var dest = path.split('/').pop();
+      if (path === '' || dest === here) {
+        if (scrollToHash(hash, true)) {
+          e.preventDefault();
+          if (history.pushState) { history.pushState(null, '', hash); }
+        }
+      }
+    });
   }
 
   function start() { loadIncludes().then(boot); }
@@ -411,9 +453,9 @@
       hramushev: {
         name: 'Храмушев Григорий Николаевич', role: 'Стоматолог-ортопед',
         photo: '',
-        bio: '<p>Ортопед с опытом более 10 лет. Специализируется на эстетическом протезировании и сложных реабилитациях.</p>' +
-          '<ul><li>ПИМУ, 2016</li><li>Ординатура по ортопедической стоматологии, 2018</li></ul>' +
-          '<p>Направления: протезирование передних зубов, протезирование на имплантах, тотальная реабилитация.</p>'
+        bio: '<p>Врач-ортопед с опытом более 10 лет. Специализируется на эстетическом протезировании и сложных реабилитациях улыбки, восстанавливая форму, функцию и эстетику зубов с предсказуемым долговечным результатом.</p>' +
+          '<ul><li>ПИМУ (Приволжский исследовательский медицинский университет), 2016</li><li>Ординатура по ортопедической стоматологии, 2018</li></ul>' +
+          '<p>Направления: протезирование передних зубов, керамические коронки и виниры, протезирование на имплантах, тотальная реабилитация прикуса.</p>'
       },
       borisova: {
         name: 'Борисова Любовь Игоревна', role: 'Врач-ортодонт',
@@ -444,12 +486,19 @@
       nameEl.textContent = d.name;
       roleEl.textContent = d.role;
       bioEl.innerHTML = d.bio;
+      var media = photo.parentNode;
       if (d.photo) {
         photo.src = d.photo; photo.alt = d.name;
-        photo.parentNode.style.display = '';
+        photo.style.display = '';
+        media.classList.remove('modal__media--initials');
+        media.removeAttribute('data-initials');
       } else {
         photo.removeAttribute('src');
-        photo.parentNode.style.display = 'none';
+        photo.style.display = 'none';
+        var parts = (d.name || '').split(/\s+/);
+        var ini = ((parts[0] || '')[0] || '') + ((parts[1] || '')[0] || '');
+        media.setAttribute('data-initials', ini.toUpperCase());
+        media.classList.add('modal__media--initials');
       }
       modal.hidden = false;
       document.body.classList.add('modal-open');
