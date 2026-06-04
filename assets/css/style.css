@@ -323,19 +323,19 @@ body.nav-open{overflow:hidden}
 /* ========== О клинике ========== */
 .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .about{padding:26px 0 28px}
-.about__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:46px;align-items:center}
+.about__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:46px;align-items:start}
 .about__copy{position:relative;top:0;will-change:top;transition:top .35s cubic-bezier(.22,.61,.36,1)}
 .about__copy p{margin:0 0 16px;font-size:15px;line-height:1.7;color:var(--muted)}
 .about__copy .btn{margin-top:6px}
 .counters{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 24px;margin:24px 0 28px}
 .counter strong{display:block;font-family:Manrope,Inter,sans-serif;font-size:40px;line-height:1;font-weight:800;letter-spacing:-.04em;background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .counter span{display:block;margin-top:6px;font-size:13px;font-weight:600;color:var(--muted)}
-.about__gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:200px 200px;gap:14px}
+.about__gallery{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:188px;gap:14px}
 .about__photo{margin:0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);background:#eef5fb}
 .about__photo img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
 .about__photo:hover img{transform:scale(1.05)}
 .about__photo--tall{grid-row:span 2}
-.about__photo--wide{grid-column:span 1}
+.about__photo--wide{grid-column:span 2}
 
 /* ========== Doctor card "Подробнее" ========== */
 .doctor-card{cursor:pointer}

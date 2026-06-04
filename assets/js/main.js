@@ -166,7 +166,7 @@
         var vh = window.innerHeight;
         var p = (vh - r.top) / (vh + r.height);
         p = p < 0 ? 0 : (p > 1 ? 1 : p);
-        aboutCopy.style.top = ((p - 0.5) * 200).toFixed(1) + 'px';
+        aboutCopy.style.top = (p * 150).toFixed(1) + 'px';
       } else if (aboutCopy) {
         aboutCopy.style.top = '';
       }
