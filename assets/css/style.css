@@ -313,6 +313,8 @@ h1,h2,h3,.section-title,.consult h2{font-family:Manrope,Inter,sans-serif}
 .burger.is-open span:nth-child(2){opacity:0}
 .burger.is-open span:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
 body.nav-open{overflow:hidden}
+.nav-overlay{position:fixed;inset:0;background:rgba(2,22,46,.5);opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s var(--ease);z-index:44}
+body.nav-open .nav-overlay{opacity:1;visibility:visible}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important}
@@ -429,14 +431,14 @@ body.modal-open{overflow:hidden}
 }
 
 @media (max-width:860px){
-  .header__row{grid-template-columns:1fr auto;gap:14px;padding:14px 0}
+  .header__row{grid-template-columns:1fr auto auto;gap:10px;padding:14px 0}
   .burger{display:flex}
-  .header__cta{display:none}
-  .nav{position:fixed;inset:0 0 0 auto;width:min(82vw,340px);height:100vh;flex-direction:column;
+  .header__cta{display:inline-flex;height:42px;padding:0 16px;font-size:14px;border-radius:12px}
+  .nav{position:fixed;inset:0 0 0 auto;width:min(82vw,340px);height:100vh;flex-direction:column;flex-wrap:nowrap;overflow-y:auto;
     justify-content:flex-start;align-items:flex-start;gap:6px;padding:88px 26px 26px;
-    background:rgba(255,255,255,.96);backdrop-filter:blur(18px);
+    background:#fff;
     box-shadow:-20px 0 60px -20px rgba(13,40,90,.4);
-    transform:translateX(100%);transition:transform .4s var(--ease);z-index:40}
+    transform:translateX(100%);transition:transform .4s var(--ease);z-index:46}
   .nav.is-open{transform:translateX(0)}
   .nav a{font-size:17px;padding:10px 0;width:100%}
   .nav a.active::after{display:none}
@@ -455,6 +457,7 @@ body.modal-open{overflow:hidden}
   .about__gallery{grid-template-columns:1fr 1fr;grid-template-rows:150px 150px}
   .counter strong{font-size:34px}
   .services__grid{grid-template-columns:1fr}
+  .arrow{display:none}
   .fab{width:50px;height:50px;right:16px}
   .fab--wa{bottom:80px}
   .faq__item summary{padding:16px 18px;font-size:14px}
@@ -541,8 +544,8 @@ body.modal-open{overflow:hidden}
   .trustbar__item{font-size:12px}
 }
 @media (max-width:560px){
-  .trustbar{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .trustbar__row{flex-wrap:nowrap;width:max-content;padding:10px 0}
+  .trustbar__row{flex-wrap:wrap;width:auto;justify-content:center;gap:8px 14px;padding:10px 0}
+  .trustbar__item{font-size:11.5px}
 }
 
 /* ========== Чекбокс согласия в форме ========== */

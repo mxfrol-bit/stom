@@ -287,6 +287,15 @@
       row.addEventListener('mouseenter', function () { if (autoTimer) clearInterval(autoTimer); });
       row.addEventListener('mouseleave', restart);
     }
+    var touchX = null;
+    track.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; if (autoTimer) clearInterval(autoTimer); }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+      touchX = null;
+      restart();
+    }, { passive: true });
     var rt;
     window.addEventListener('resize', function () {
       clearTimeout(rt);
@@ -364,6 +373,15 @@
       row.addEventListener('mouseenter', function () { if (autoTimer) clearInterval(autoTimer); });
       row.addEventListener('mouseleave', restart);
     }
+    var touchX = null;
+    track.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; if (autoTimer) clearInterval(autoTimer); }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+      touchX = null;
+      restart();
+    }, { passive: true });
     var rt;
     window.addEventListener('resize', function () {
       clearTimeout(rt);
@@ -377,6 +395,9 @@
     var btn = document.getElementById('burger');
     var nav = document.getElementById('nav');
     if (!btn || !nav) return;
+    var overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.appendChild(overlay);
     function close() {
       btn.classList.remove('is-open');
       nav.classList.remove('is-open');
@@ -389,6 +410,7 @@
       document.body.classList.toggle('nav-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+    overlay.addEventListener('click', close);
     nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
