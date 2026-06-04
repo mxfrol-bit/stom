@@ -34,7 +34,7 @@ a{text-decoration:none;color:inherit} img{display:block;max-width:100%} button,i
 .nav__item--has-sub:hover .nav__sub,.nav__item--has-sub:focus-within .nav__sub{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 .nav__sub a{font-size:13px;font-weight:600;color:#2c3b50;padding:10px 12px;border-radius:11px;white-space:nowrap;transition:background .2s var(--ease),color .2s var(--ease)}
 .nav__sub a:hover{background:var(--soft);color:var(--accent)}
-.header__cta{height:50px;border-radius:14px;background:linear-gradient(180deg,#1793ef,#0e82e5);box-shadow:0 12px 25px rgba(15,130,234,.22);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+.header__cta{height:46px;padding:0 22px;border-radius:13px;background:linear-gradient(180deg,#1793ef,#0e82e5);box-shadow:0 12px 25px rgba(15,130,234,.22);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14.5px}
 .hero{background:linear-gradient(180deg,#fbfdff,#fff 85%)}
 .hero__grid{display:grid;grid-template-columns:430px 1fr;gap:36px;align-items:center;padding:26px 0 18px}
 .pill{display:inline-flex;align-items:center;gap:10px;padding:0 14px;height:38px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 22px rgba(12,76,133,.05);border-radius:999px;color:var(--blue);font-size:13px;font-weight:800}
