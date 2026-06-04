@@ -333,6 +333,7 @@ body.nav-open{overflow:hidden}
 .about__gallery{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:188px;gap:14px}
 .about__photo{margin:0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);background:#eef5fb}
 .about__photo img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.about__photo img.is-team{object-position:center 14%}
 .about__photo:hover img{transform:scale(1.05)}
 .about__photo--tall{grid-row:span 2}
 .about__photo--wide{grid-column:span 2}
@@ -700,6 +701,7 @@ body.modal-open{overflow:hidden}
 .svc-hero__media{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);
   aspect-ratio:4/3;border:1px solid var(--line);background:#eef5fb}
 .svc-hero__media img{width:100%;height:100%;object-fit:cover}
+.svc-hero__media img.is-team{object-position:center 12%}
 .svc-hero__price{position:absolute;left:16px;bottom:16px;padding:10px 16px;border-radius:14px;
   background:rgba(255,255,255,.94);backdrop-filter:blur(8px);box-shadow:var(--shadow-lg)}
 .svc-hero__price span{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
