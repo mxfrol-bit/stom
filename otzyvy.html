@@ -23,6 +23,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Стоматология Натальи Боровиковой",
+    "image": "https://bor-dent.ru/assets/img/clinic-team.jpg",
+    "url": "https://bor-dent.ru/otzyvy.html",
+    "telephone": "+7-831-235-00-07",
+    "address": {"@type": "PostalAddress","streetAddress": "ул. Ленина, 35","addressLocality": "Ворсма","addressRegion": "Нижегородская область","addressCountry": "RU"},
+    "aggregateRating": {"@type": "AggregateRating","ratingValue": "4.9","reviewCount": "134","bestRating": "5","worstRating": "1"},
+    "review": [
+      {"@type": "Review","author": {"@type": "Person","name": "Марина К."},"datePublished": "2026-04-18","reviewRating": {"@type": "Rating","ratingValue": "5","bestRating": "5"},"reviewBody": "Очень боялась ставить имплант, но всё прошло абсолютно безболезненно. Доктор подробно всё объяснил, а на следующий день позвонили и спросили о самочувствии. Имплант прижился отлично."},
+      {"@type": "Review","author": {"@type": "Person","name": "Алексей П."},"datePublished": "2026-03-22","reviewRating": {"@type": "Rating","ratingValue": "5","bestRating": "5"},"reviewBody": "Делал коронки на передние зубы. Результат превзошёл ожидания — улыбка выглядит абсолютно естественно, цвет подобрали идеально."},
+      {"@type": "Review","author": {"@type": "Person","name": "Ольга С."},"datePublished": "2026-02-11","reviewRating": {"@type": "Rating","ratingValue": "5","bestRating": "5"},"reviewBody": "Привела дочку, она панически боится стоматологов. Здесь нашли к ней подход, вылечили зубик без слёз и истерик. Теперь ходим только сюда."},
+      {"@type": "Review","author": {"@type": "Person","name": "Дмитрий Л."},"datePublished": "2026-03-05","reviewRating": {"@type": "Rating","ratingValue": "5","bestRating": "5"},"reviewBody": "Лечил запущенный зуб, который в других клиниках предлагали удалить. Здесь его сохранили — работали под микроскопом, всё аккуратно."},
+      {"@type": "Review","author": {"@type": "Person","name": "Наталья В."},"datePublished": "2026-02-02","reviewRating": {"@type": "Rating","ratingValue": "5","bestRating": "5"},"reviewBody": "Регулярно делаю профессиональную чистку. Всё аккуратно и без боли, эмаль заметно светлеет. Персонал доброжелательный, всегда заранее напоминают о визите."},
+      {"@type": "Review","author": {"@type": "Person","name": "Екатерина М."},"datePublished": "2026-01-20","reviewRating": {"@type": "Rating","ratingValue": "5","bestRating": "5"},"reviewBody": "Делала отбеливание — прошло комфортно, зубы стали светлее на несколько тонов без чувствительности. Очень довольна и результатом, и отношением."}
+    ]
+  }
+  </script>
 </head>
 <body>
 <div class="preloader" id="preloader" aria-hidden="true">
@@ -69,6 +89,7 @@
       </span>
       <a href="vrachi.html">Врачи</a>
       <a href="otzyvy.html">Отзывы</a>
+      <a href="blog.html">Блог</a>
       <a href="ceny.html">Цены</a>
       <a href="kontakty.html">Контакты</a>
     </nav>
@@ -111,6 +132,58 @@
           <button class="arrow arrow--right" aria-label="Вперед">›</button>
         </div>
         <div class="dots"></div>
+      </div>
+    </section>
+
+    <section class="testimonials" data-reveal>
+      <div class="container">
+        <div class="testimonials__head">
+          <span class="eyebrow">Текстовые отзывы</span>
+          <h2 class="section-title">Истории наших пациентов</h2>
+          <div class="testimonials__rating">
+            <span class="stars" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg></span>
+            <b>4,9 из 5</b>
+            <span class="testimonials__count">по&nbsp;оценкам&nbsp;134&nbsp;пациентов</span>
+          </div>
+        </div>
+        <div class="testimonials__grid">
+          <figure class="t-card">
+            <span class="t-card__quote" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-quote"></use></svg></span>
+            <span class="stars stars--sm" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg></span>
+            <blockquote>Очень боялась ставить имплант, но всё прошло абсолютно безболезненно. Доктор подробно всё объяснил, а на следующий день позвонили и спросили о самочувствии. Имплант прижился отлично, спасибо за заботу!</blockquote>
+            <figcaption><span class="t-card__avatar">М</span><span class="t-card__who"><b>Марина К.</b><i>Имплантация · апрель&nbsp;2026</i></span></figcaption>
+          </figure>
+          <figure class="t-card">
+            <span class="t-card__quote" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-quote"></use></svg></span>
+            <span class="stars stars--sm" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg></span>
+            <blockquote>Делал коронки на передние зубы у Геннадия Николаевича. Результат превзошёл ожидания — улыбка выглядит абсолютно естественно, цвет подобрали идеально. Теперь не стесняюсь улыбаться на фото.</blockquote>
+            <figcaption><span class="t-card__avatar">А</span><span class="t-card__who"><b>Алексей П.</b><i>Протезирование · март&nbsp;2026</i></span></figcaption>
+          </figure>
+          <figure class="t-card">
+            <span class="t-card__quote" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-quote"></use></svg></span>
+            <span class="stars stars--sm" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg></span>
+            <blockquote>Привела дочку, она панически боится стоматологов. Здесь нашли к ней подход, вылечили зубик без слёз и истерик, ещё и похвалили за смелость. Теперь ходим только сюда, ребёнок идёт с удовольствием.</blockquote>
+            <figcaption><span class="t-card__avatar">О</span><span class="t-card__who"><b>Ольга С.</b><i>Детская стоматология · февраль&nbsp;2026</i></span></figcaption>
+          </figure>
+          <figure class="t-card">
+            <span class="t-card__quote" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-quote"></use></svg></span>
+            <span class="stars stars--sm" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg></span>
+            <blockquote>Лечил запущенный зуб, который в двух других клиниках предлагали просто удалить. Здесь его сохранили — работали под микроскопом, всё аккуратно. Современное оборудование чувствуется во всём.</blockquote>
+            <figcaption><span class="t-card__avatar">Д</span><span class="t-card__who"><b>Дмитрий Л.</b><i>Лечение зубов · март&nbsp;2026</i></span></figcaption>
+          </figure>
+          <figure class="t-card">
+            <span class="t-card__quote" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-quote"></use></svg></span>
+            <span class="stars stars--sm" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg></span>
+            <blockquote>Регулярно делаю профессиональную чистку. Всё аккуратно и без боли, эмаль заметно светлеет. Персонал доброжелательный, всегда заранее напоминают о визите. Атмосфера спокойная и уютная.</blockquote>
+            <figcaption><span class="t-card__avatar">Н</span><span class="t-card__who"><b>Наталья В.</b><i>Гигиена · февраль&nbsp;2026</i></span></figcaption>
+          </figure>
+          <figure class="t-card">
+            <span class="t-card__quote" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-quote"></use></svg></span>
+            <span class="stars stars--sm" aria-hidden="true"><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg><svg><use href="assets/img/icons.svg#i-star"></use></svg></span>
+            <blockquote>Делала отбеливание — прошло комфортно, зубы стали светлее на несколько тонов без чувствительности. Очень довольна и результатом, и отношением. Рекомендую клинику всем знакомым.</blockquote>
+            <figcaption><span class="t-card__avatar">Е</span><span class="t-card__who"><b>Екатерина М.</b><i>Отбеливание · январь&nbsp;2026</i></span></figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -211,6 +284,7 @@
       <a href="vrachi.html">Врачи</a>
       <a href="ceny.html">Цены</a>
       <a href="otzyvy.html">Отзывы</a>
+      <a href="blog.html">Блог</a>
       <a href="kontakty.html">Контакты</a>
     </div>
     <div>

@@ -781,3 +781,77 @@ body.modal-open{overflow:hidden}
 @media (max-width:1180px){.service-card{flex-basis:calc((100% - 28px)/3)}}
 @media (max-width:860px){.service-card{flex-basis:calc((100% - 14px)/2)}}
 @media (max-width:560px){.service-card{flex-basis:100%}}
+
+/* ============================================================
+   ТЕКСТОВЫЕ ОТЗЫВЫ
+   ============================================================ */
+.testimonials{padding:30px 0 36px}
+.testimonials__head{text-align:center;max-width:640px;margin:0 auto 30px}
+.testimonials__head .eyebrow{margin-bottom:10px}
+.testimonials__head .section-title{margin:0 0 14px}
+.testimonials__rating{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+  padding:9px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:0 10px 26px rgba(12,76,133,.06)}
+.testimonials__rating b{font-size:15px;color:var(--text)}
+.testimonials__count{font-size:13px;color:var(--muted)}
+.stars{display:inline-flex;gap:2px;color:#f7b500}
+.stars svg{width:18px;height:18px}
+.stars--sm svg{width:15px;height:15px}
+.testimonials__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.t-card{position:relative;margin:0;display:flex;flex-direction:column;gap:14px;
+  background:linear-gradient(165deg,#fff,#f6fbff);border:1px solid var(--line);border-radius:20px;
+  padding:26px 24px 22px;box-shadow:0 14px 34px rgba(12,76,133,.06);overflow:hidden}
+.t-card__quote{position:absolute;top:16px;right:18px;color:var(--accent);opacity:.16}
+.t-card__quote svg{width:42px;height:42px}
+.t-card blockquote{margin:0;font-size:14.5px;line-height:1.65;color:#33485f}
+.t-card figcaption{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:6px}
+.t-card__avatar{flex:0 0 auto;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:Manrope,Inter,sans-serif;font-weight:800;font-size:17px;color:#fff;
+  background:linear-gradient(150deg,var(--accent),#0a64c2)}
+.t-card__who{display:flex;flex-direction:column;line-height:1.3}
+.t-card__who b{font-size:14.5px;color:var(--text)}
+.t-card__who i{font-style:normal;font-size:12.5px;color:var(--muted)}
+.testimonials__cta{text-align:center;margin-top:28px}
+@media (max-width:960px){.testimonials__grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.testimonials__grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   БЛОГ
+   ============================================================ */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+.post-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;
+  overflow:hidden;box-shadow:0 14px 34px rgba(12,76,133,.06);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(12,76,133,.12)}
+.post-card__media{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(160deg,#eaf3fd,#d7e7fb)}
+.post-card__media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.post-card:hover .post-card__media img{transform:scale(1.05)}
+.post-card__tag{position:absolute;top:12px;left:12px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.92);
+  font-size:11.5px;font-weight:800;letter-spacing:.04em;color:var(--accent);text-transform:uppercase;backdrop-filter:blur(4px)}
+.post-card__body{display:flex;flex-direction:column;gap:10px;padding:20px 22px 22px;flex:1}
+.post-card__date{font-size:12.5px;color:var(--muted);font-weight:600}
+.post-card__body h3{margin:0;font-family:Manrope,Inter,sans-serif;font-size:18px;line-height:1.3;color:var(--text)}
+.post-card__body p{margin:0;font-size:14px;line-height:1.6;color:var(--muted)}
+.post-card__more{margin-top:auto;padding-top:6px;font-size:14px;font-weight:800;color:var(--accent)}
+@media (max-width:960px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.blog-grid{grid-template-columns:1fr}}
+
+/* Статья */
+.article{padding:8px 0 10px}
+.article__wrap{max-width:760px;margin:0 auto}
+.article__media{margin:0 0 28px;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(160deg,#eaf3fd,#d7e7fb);box-shadow:var(--shadow-lg)}
+.article__media img{width:100%;height:100%;object-fit:cover;display:block}
+.article__meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:18px;font-size:13px;color:var(--muted)}
+.article__meta .post-card__tag{position:static;background:var(--soft)}
+.article__body h2{font-family:Manrope,Inter,sans-serif;font-size:23px;color:var(--text);margin:34px 0 12px}
+.article__body h3{font-family:Manrope,Inter,sans-serif;font-size:18px;color:var(--text);margin:24px 0 10px}
+.article__body p{font-size:16px;line-height:1.75;color:#33485f;margin:0 0 16px}
+.article__body ul,.article__body ol{margin:0 0 18px;padding-left:22px}
+.article__body li{font-size:16px;line-height:1.7;color:#33485f;margin-bottom:8px}
+.article__body b,.article__body strong{color:var(--text)}
+.article__lead{font-size:18px;line-height:1.7;color:var(--text);font-weight:500;margin:0 0 22px}
+.article__callout{display:flex;gap:14px;align-items:flex-start;margin:24px 0;padding:20px 22px;border-radius:18px;
+  background:linear-gradient(160deg,#f1f8ff,#f9fcff);border:1px solid var(--line)}
+.article__callout svg{flex:0 0 auto;width:24px;height:24px;color:var(--accent);margin-top:2px}
+.article__callout p{margin:0;font-size:15px;line-height:1.65;color:#33485f}
+.article__share{margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
+.post-nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:30px}
+@media (max-width:600px){.article__body h2{font-size:20px}.article__body p,.article__body li,.article__lead{font-size:15.5px}}
