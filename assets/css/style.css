@@ -70,8 +70,8 @@ a{text-decoration:none;color:inherit} img{display:block;max-width:100%} button,i
 .why__grid h3{margin:0 0 6px;font-size:14px;line-height:1.25;font-weight:800;color:#24364b}
 .why__grid p{margin:0;font-size:12px;line-height:1.45;color:#6b7d92}
 .services{padding:8px 0 18px}.services__grid{margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.service-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 20px rgba(7,53,102,.04);display:flex;flex-direction:column;min-height:288px;flex:0 1 calc((100% - 70px)/6)}
-.service-card img{width:100%;height:126px;object-fit:cover}
+.service-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 20px rgba(7,53,102,.04);display:flex;flex-direction:column;min-height:320px;flex:0 1 calc((100% - 42px)/4)}
+.service-card img{width:100%;height:160px;object-fit:cover}
 .service-card div{padding:16px 14px 15px;display:flex;flex:1;flex-direction:column}
 .service-card h3{margin:0 0 10px;font-size:16px;line-height:1.22;letter-spacing:-.03em;font-weight:900}
 .service-card p{margin:0;font-size:13px;line-height:1.55;color:#6b7d92;min-height:38px}
