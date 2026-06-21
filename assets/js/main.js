@@ -142,6 +142,7 @@
     document.querySelectorAll('.nav a').forEach(function (a) {
       var href = a.getAttribute('href') || '';
       if (href.indexOf('#') !== -1) return; // якорные ссылки не подсвечиваем по странице
+      if (/^(https?:|tel:|mailto:)/i.test(href)) return; // внешние ссылки (мессенджеры, карта) не подсвечиваем
       var file = href.split('/').pop() || 'index.html';
       a.classList.toggle('active', file === path);
     });
@@ -398,12 +399,46 @@
     var overlay = document.createElement('div');
     overlay.className = 'nav-overlay';
     document.body.appendChild(overlay);
+    // Кнопка закрытия внутри выезжающего меню (на мобильных бургер скрыт под панелью)
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'nav__close';
+    closeBtn.setAttribute('aria-label', 'Закрыть меню');
+    nav.insertBefore(closeBtn, nav.firstChild);
+
+    // Конверсионный «подвал» шторки: CTA + быстрые контакты (телефон + мессенджеры).
+    // TODO: заменить telegram/max на реальные ссылки на чаты клиники.
+    var CONTACTS = {
+      phone: '+7 (831) 235-00-07',
+      tel: 'tel:+78312350007',
+      whatsapp: 'https://wa.me/78312350007',
+      telegram: 'https://t.me/',
+      max: 'https://max.ru/'
+    };
+    var ICON_MAX = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.9 3 3 6.36 3 10.55c0 2.39 1.3 4.5 3.4 5.88-.12.92-.55 2.16-1.36 3.18-.22.28.02.66.37.55 1.95-.56 3.36-1.27 4.24-1.85.6.1 1.22.14 1.85.14 5.1 0 9-3.36 9-7.9C20.5 6.36 17.1 3 12 3Zm-3.4 9.6L10.6 9l1.7 2.3L14.1 9l1.3 3.6h-1.4l-.6-1.8-1.2 1.6h-.4l-1.2-1.6-.6 1.8H8.6Z"/></svg>';
+    var ICON_WA = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.8c2.17 0 4.21.85 5.74 2.38a8.07 8.07 0 0 1 2.38 5.73c0 4.48-3.65 8.12-8.13 8.12-1.53 0-3.03-.43-4.32-1.23l-.31-.18-3.21.84.86-3.12-.2-.32a8.07 8.07 0 0 1-1.24-4.31c0-4.48 3.64-8.12 8.13-8.12Zm-4.56 4.4c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.22 3.39 5.38 4.62.75.29 1.34.46 1.79.59.75.24 1.44.21 1.98.13.6-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.13-.29-.21-.6-.37-.31-.16-1.85-.91-2.14-1.01-.29-.11-.5-.16-.71.16-.21.31-.81 1.01-.99 1.22-.18.21-.37.24-.68.08-.31-.16-1.31-.48-2.5-1.54-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.48.14-.63.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.11-.21.05-.39-.03-.55-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.6Z"/></svg>';
+    var ICON_TG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m21.94 4.6-3.1 14.62c-.23 1.03-.84 1.28-1.7.8l-4.7-3.46-2.27 2.18c-.25.25-.46.46-.94.46l.34-4.79 8.71-7.86c.38-.34-.08-.53-.59-.19L4.94 13.73.31 12.28C-.7 11.97-.72 11.27.52 10.78l18.11-6.98c.84-.31 1.58.2 1.31 1.5Z"/></svg>';
+    var foot = document.createElement('div');
+    foot.className = 'nav__foot';
+    foot.innerHTML =
+      '<a class="nav__cta" href="kontakty.html#consult">Записаться</a>' +
+      '<div class="nav__contacts">' +
+        '<a class="nav__tel" href="' + CONTACTS.tel + '">' + CONTACTS.phone + '</a>' +
+        '<div class="nav__msgr">' +
+          '<a class="nav__msgr-btn nav__msgr-btn--max" href="' + CONTACTS.max + '" target="_blank" rel="noopener" aria-label="MAX">' + ICON_MAX + '</a>' +
+          '<a class="nav__msgr-btn nav__msgr-btn--wa" href="' + CONTACTS.whatsapp + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + ICON_WA + '</a>' +
+          '<a class="nav__msgr-btn nav__msgr-btn--tg" href="' + CONTACTS.telegram + '" target="_blank" rel="noopener" aria-label="Telegram">' + ICON_TG + '</a>' +
+        '</div>' +
+      '</div>';
+    nav.appendChild(foot);
+
     function close() {
       btn.classList.remove('is-open');
       nav.classList.remove('is-open');
       document.body.classList.remove('nav-open');
       btn.setAttribute('aria-expanded', 'false');
     }
+    closeBtn.addEventListener('click', close);
     btn.addEventListener('click', function () {
       var open = nav.classList.toggle('is-open');
       btn.classList.toggle('is-open', open);

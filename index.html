@@ -9,8 +9,6 @@
   <meta name="theme-color" content="#0d6fc7">
   <meta name="geo.region" content="RU-NIZ">
   <meta name="geo.placename" content="Ворсма">
-  <meta name="geo.position" content="56.0044;43.2683">
-  <meta name="ICBM" content="56.0044, 43.2683">
   <link rel="canonical" href="https://bor-dent.ru/">
 
   <meta property="og:type" content="website">
@@ -39,7 +37,6 @@
     "telephone": "+7-831-235-00-07",
     "priceRange": "₽₽",
     "address": {"@type": "PostalAddress","streetAddress": "ул. Ленина, 35","addressLocality": "Ворсма","addressRegion": "Нижегородская область","addressCountry": "RU"},
-    "geo": {"@type": "GeoCoordinates","latitude": 56.0044,"longitude": 43.2683},
     "openingHoursSpecification": [{"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens": "09:00","closes": "20:00"}],
     "areaServed": ["Ворсма","Павлово","Богородск","Сосновское","Нижегородская область"],
     "medicalSpecialty": ["Dentistry","Orthodontics","Periodontics","Prosthodontics"],
@@ -101,13 +98,17 @@
       <span class="nav__item nav__item--has-sub">
         <a href="uslugi.html">Услуги</a>
         <span class="nav__sub">
-          <a href="implantaciya.html">Имплантация</a>
-          <a href="protezirovanie.html">Протезирование</a>
-          <a href="lechenie-zubov.html">Лечение зубов</a>
-          <a href="gigiena.html">Гигиена и чистка</a>
-          <a href="otbelivanie.html">Отбеливание зубов</a>
-          <a href="brekety.html">Брекеты и элайнеры</a>
-          <a href="detskaya-stomatologiya.html">Детская стоматология</a>
+          <span class="nav__sub-col nav__sub-col--top">
+            <a class="nav__lead" href="implantaciya.html"><i class="nav__ic"><svg><use href="assets/img/icons.svg#i-implant"></use></svg></i>Имплантация</a>
+            <a class="nav__lead" href="brekety.html"><i class="nav__ic"><svg><use href="assets/img/icons.svg#i-braces"></use></svg></i>Брекеты и элайнеры</a>
+            <a class="nav__lead" href="lechenie-zubov.html"><i class="nav__ic"><svg><use href="assets/img/icons.svg#i-tooth"></use></svg></i>Лечение зубов</a>
+            <a class="nav__lead" href="detskaya-stomatologiya.html"><i class="nav__ic"><svg><use href="assets/img/icons.svg#i-child"></use></svg></i>Детская стоматология</a>
+          </span>
+          <span class="nav__sub-col nav__sub-col--more">
+            <a href="protezirovanie.html">Протезирование</a>
+            <a href="gigiena.html">Гигиена и чистка</a>
+            <a href="otbelivanie.html">Отбеливание</a>
+          </span>
         </span>
       </span>
       <a href="vrachi.html">Врачи</a>
@@ -137,7 +138,13 @@
     <section class="hero">
       <div class="container hero__grid">
         <div class="hero__copy">
-          <div class="pill"><span></span>Стоматология нового поколения</div>
+          <div class="hero__tags">
+            <a class="htag htag--active" href="implantaciya.html"><svg><use href="assets/img/icons.svg#i-implant"></use></svg>Имплантация</a>
+            <a class="htag" href="brekety.html"><svg><use href="assets/img/icons.svg#i-braces"></use></svg>Брекеты</a>
+            <a class="htag" href="lechenie-zubov.html"><svg><use href="assets/img/icons.svg#i-tooth"></use></svg>Лечение</a>
+            <a class="htag" href="detskaya-stomatologiya.html"><svg><use href="assets/img/icons.svg#i-child"></use></svg>Детям</a>
+            <a class="htag" href="ceny.html"><svg><use href="assets/img/icons.svg#i-wallet"></use></svg>Цены</a>
+          </div>
           <h1>Красивая улыбка<br>начинается<br><em>с доверия</em></h1>
           <p>Премиальная семейная стоматология Натальи Боровиковой: аккуратное лечение, цифровая диагностика, эстетика без перегруза и человеческое отношение на каждом этапе.</p>
           <div class="hero__actions">

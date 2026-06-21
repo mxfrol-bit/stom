@@ -9,8 +9,6 @@
   <meta name="theme-color" content="#0d6fc7">
   <meta name="geo.region" content="RU-NIZ">
   <meta name="geo.placename" content="Ворсма">
-  <meta name="geo.position" content="56.0044;43.2683">
-  <meta name="ICBM" content="56.0044, 43.2683">
   <link rel="canonical" href="https://bor-dent.ru/kontakty.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
@@ -58,13 +56,17 @@
       <span class="nav__item nav__item--has-sub">
         <a href="uslugi.html">Услуги</a>
         <span class="nav__sub">
-          <a href="implantaciya.html">Имплантация</a>
-          <a href="protezirovanie.html">Протезирование</a>
-          <a href="lechenie-zubov.html">Лечение зубов</a>
-          <a href="gigiena.html">Гигиена и чистка</a>
-          <a href="otbelivanie.html">Отбеливание зубов</a>
-          <a href="brekety.html">Брекеты и элайнеры</a>
-          <a href="detskaya-stomatologiya.html">Детская стоматология</a>
+          <span class="nav__sub-col nav__sub-col--top">
+            <a class="nav__lead" href="implantaciya.html"><i class="nav__ic"><svg><use href="assets/img/icons.svg#i-implant"></use></svg></i>Имплантация</a>
+            <a class="nav__lead" href="brekety.html"><i class="nav__ic"><svg><use href="assets/img/icons.svg#i-braces"></use></svg></i>Брекеты и элайнеры</a>
+            <a class="nav__lead" href="lechenie-zubov.html"><i class="nav__ic"><svg><use href="assets/img/icons.svg#i-tooth"></use></svg></i>Лечение зубов</a>
+            <a class="nav__lead" href="detskaya-stomatologiya.html"><i class="nav__ic"><svg><use href="assets/img/icons.svg#i-child"></use></svg></i>Детская стоматология</a>
+          </span>
+          <span class="nav__sub-col nav__sub-col--more">
+            <a href="protezirovanie.html">Протезирование</a>
+            <a href="gigiena.html">Гигиена и чистка</a>
+            <a href="otbelivanie.html">Отбеливание</a>
+          </span>
         </span>
       </span>
       <a href="vrachi.html">Врачи</a>
@@ -108,7 +110,7 @@
           <div class="contacts__item">
             <svg><use href="assets/img/icons.svg#i-pin"></use></svg>
             <div><h3>Адрес</h3><p>Нижегородская обл., г. Ворсма,<br>ул. Ленина, 35</p>
-            <a class="contacts__route" href="https://www.openstreetmap.org/?mlat=56.0044&mlon=43.2683#map=17/56.0044/43.2683" target="_blank" rel="noopener">Открыть карту →</a></div>
+            <a class="contacts__route" href="https://yandex.ru/maps/?text=Нижегородская%20область%2C%20Ворсма%2C%20улица%20Ленина%2C%2035" target="_blank" rel="noopener">Открыть карту →</a></div>
           </div>
           <div class="contacts__item">
             <svg><use href="assets/img/icons.svg#i-phone"></use></svg>
@@ -123,16 +125,8 @@
             <div><h3>Режим работы</h3><p>Пн–Сб: 9:00–20:00<br>Вс: выходной</p></div>
           </div>
         </div>
-        <div class="contacts__map">
-          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=43.2583%2C56.0004%2C43.2783%2C56.0084&layer=mapnik&marker=56.0044%2C43.2683" title="Карта: Ворсма, ул. Ленина, 35" loading="lazy"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <section class="consult-section" id="consult">
-      <div class="container">
-        <aside class="consult consult--page">
-          <h2>Бесплатная консультация</h2>
+        <aside class="consult consult--page contacts__form" id="consult">
+          <h2>Записаться на бесплатную консультацию</h2>
           <p>Ответим на вопросы и подберём лучшее решение для вас</p>
           <form id="consult-form" novalidate>
             <input type="text" name="name" placeholder="Имя" required>
