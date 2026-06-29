@@ -139,8 +139,8 @@ a{text-decoration:none;color:inherit} img{display:block;max-width:100%} button,i
 .reviews__row{position:relative}
 .reviews__viewport{overflow:hidden;width:100%;padding:6px 2px 4px}
 .reviews__track{display:flex;align-items:stretch;gap:18px;transition:transform .55s var(--ease);will-change:transform}
-.reviews__track .review-shot{position:relative;flex:0 0 calc((100% - 3*18px)/4);aspect-ratio:3/4;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#eef5fb;box-shadow:var(--shadow-lg);cursor:zoom-in;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.reviews__track .review-shot img{width:100%;height:100%;object-fit:contain;object-position:center;background:#f4f8fc;display:block;transition:transform .6s var(--ease)}
+.reviews__track .review-shot{position:relative;flex:0 0 calc((100% - 3*18px)/4);aspect-ratio:3/4;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#1c1c1e;box-shadow:var(--shadow-lg);cursor:zoom-in;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.reviews__track .review-shot img{width:100%;height:100%;object-fit:contain;object-position:center;background:#1c1c1e;display:block;transition:transform .6s var(--ease)}
 .reviews__track .review-shot::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,24,48,.82),rgba(6,24,48,.05) 26%,transparent 42%);transition:opacity .3s var(--ease)}
 .reviews__track .review-shot::after{content:"Читать отзыв целиком →";position:absolute;left:0;right:0;bottom:0;padding:14px 16px;color:#fff;font-size:12.5px;font-weight:800;letter-spacing:.01em}
 .reviews__track .review-shot:hover{transform:translateY(-6px);box-shadow:var(--shadow-pop)}
