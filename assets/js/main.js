@@ -446,7 +446,19 @@
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     overlay.addEventListener('click', close);
-    nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var href = a.getAttribute('href') || '';
+        // Переход на другую страницу сайта: закрываем шторку мгновенно, без анимации,
+        // иначе видно, как разделы «съезжают» на 1–2 сек перед загрузкой страницы.
+        var crossPage = href && href.charAt(0) !== '#' && !/^(tel:|mailto:|https?:)/i.test(href);
+        if (crossPage) {
+          nav.style.transition = 'none';
+          overlay.style.transition = 'none';
+        }
+        close();
+      });
+    });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
 

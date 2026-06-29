@@ -48,7 +48,9 @@ a{text-decoration:none;color:inherit} img{display:block;max-width:100%} button,i
 .hero__grid{display:grid;grid-template-columns:430px 1fr;gap:36px;align-items:center;padding:26px 0 18px}
 .pill{display:inline-flex;align-items:center;gap:10px;padding:0 14px;height:38px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 22px rgba(12,76,133,.05);border-radius:999px;color:var(--blue);font-size:13px;font-weight:800}
 /* ===== Лента тегов-услуг в герое (вместо бейджа) ===== */
-.hero__tags{display:flex;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;margin:0 0 22px;padding-bottom:2px;scroll-snap-type:x proximity}
+/* Лента видна только на мобильной версии (на ПК — скрыта по просьбе клиента) */
+.hero__tags{display:none;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;margin:0 0 22px;padding-bottom:2px;scroll-snap-type:x proximity}
+@media (max-width:860px){.hero__tags{display:flex}}
 .hero__tags::-webkit-scrollbar{display:none;width:0;height:0}
 .htag{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13.5px;font-weight:700;color:var(--navy);white-space:nowrap;scroll-snap-align:start;box-shadow:0 6px 18px -12px rgba(12,76,133,.25);transition:border-color .2s var(--ease),box-shadow .2s var(--ease),transform .2s var(--ease)}
 .htag svg{width:16px;height:16px;color:var(--blue);flex:0 0 auto}
@@ -61,7 +63,7 @@ a{text-decoration:none;color:inherit} img{display:block;max-width:100%} button,i
 .hero h1 em{font-style:normal;color:var(--blue)}
 .hero p{margin:0;max-width:410px;font-size:16px;line-height:1.65;color:var(--muted);font-weight:500}
 .hero__actions{display:flex;gap:16px;margin:32px 0 28px}
-.btn{height:56px;border-radius:14px;padding:0 26px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;border:1px solid transparent}
+.btn{height:56px;border-radius:14px;padding:0 26px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;border:1px solid transparent;text-align:center;white-space:normal;line-height:1.2}
 .btn--primary{color:#fff;background:linear-gradient(180deg,#1592ed,#0d83e4);box-shadow:0 14px 30px rgba(15,130,234,.24)}
 .btn--ghost{background:#fff;border-color:var(--line);color:#23374d;box-shadow:0 8px 20px rgba(7,53,102,.04)}
 .btn--full{width:100%}
@@ -138,7 +140,7 @@ a{text-decoration:none;color:inherit} img{display:block;max-width:100%} button,i
 .reviews__viewport{overflow:hidden;width:100%;padding:6px 2px 4px}
 .reviews__track{display:flex;align-items:stretch;gap:18px;transition:transform .55s var(--ease);will-change:transform}
 .reviews__track .review-shot{position:relative;flex:0 0 calc((100% - 3*18px)/4);aspect-ratio:3/4;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#eef5fb;box-shadow:var(--shadow-lg);cursor:zoom-in;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.reviews__track .review-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .6s var(--ease)}
+.reviews__track .review-shot img{width:100%;height:100%;object-fit:contain;object-position:center;background:#f4f8fc;display:block;transition:transform .6s var(--ease)}
 .reviews__track .review-shot::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,24,48,.82),rgba(6,24,48,.05) 26%,transparent 42%);transition:opacity .3s var(--ease)}
 .reviews__track .review-shot::after{content:"Читать отзыв целиком →";position:absolute;left:0;right:0;bottom:0;padding:14px 16px;color:#fff;font-size:12.5px;font-weight:800;letter-spacing:.01em}
 .reviews__track .review-shot:hover{transform:translateY(-6px);box-shadow:var(--shadow-pop)}
@@ -309,7 +311,8 @@ h1,h2,h3,.section-title,.consult h2{font-family:Manrope,Inter,sans-serif}
 .consult{background:linear-gradient(160deg,rgba(244,249,255,.9),rgba(249,252,255,.85))}
 .consult input{transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
 .consult input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,123,246,.15)}
-.form-status{margin:4px 0 0;font-size:13px;line-height:1.45;font-weight:600}
+/* Сообщение формы стоит НАД кнопкой «Записаться на приём», по центру */
+.form-status{margin:2px 0 10px;font-size:13px;line-height:1.45;font-weight:700;text-align:center}
 .form-status--ok{color:#1a8f4a}
 .form-status--error{color:#d23b3b}
 
@@ -330,7 +333,7 @@ h1,h2,h3,.section-title,.consult h2{font-family:Manrope,Inter,sans-serif}
 
 /* ---------- Burger / mobile menu ---------- */
 .burger{display:none;width:46px;height:46px;border:var(--glass-bd);border-radius:12px;background:var(--glass);
-  backdrop-filter:blur(8px);cursor:pointer;padding:0;place-items:center;gap:5px;flex-direction:column;
+  backdrop-filter:blur(8px);cursor:pointer;padding:0;align-items:center;justify-content:center;gap:5px;flex-direction:column;
   box-shadow:0 8px 20px -8px rgba(47,123,246,.35)}
 .burger span{display:block;width:22px;height:2.4px;border-radius:2px;background:var(--navy);transition:transform .35s var(--ease),opacity .25s var(--ease)}
 .burger.is-open span:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
@@ -918,3 +921,24 @@ body.modal-open{overflow:hidden}
 .article__share{margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
 .post-nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:30px}
 @media (max-width:600px){.article__body h2{font-size:20px}.article__body p,.article__body li,.article__lead{font-size:15.5px}}
+
+/* ============================================================
+   ПРАВКИ ПО ЗАМЕЧАНИЯМ КЛИЕНТА (24.06)
+   ============================================================ */
+/* Карточка услуги кликабельна целиком: картинка, заголовок и текст ведут на страницу */
+.service-card{position:relative}
+.service-card__link{position:absolute;inset:0;z-index:3;border-radius:inherit}
+.service-card__link:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Футер, колонка «Контакты»: иконка и текст в одну строку (без лишнего переноса) */
+.footer__grid>div:last-child p{display:flex;align-items:flex-start;gap:8px}
+.footer__grid>div:last-child p svg{margin-right:0;margin-top:3px}
+.footer__grid>div:last-child p a{display:inline}
+
+/* Неразрывные реквизиты в подвале — ИНН/ОГРНИП не разрываются между строк */
+.nowrap{white-space:nowrap}
+
+/* На тач-устройствах кнопки не «подпрыгивают» по тапу (из-за этого срезалась верхушка) */
+@media (hover:none){
+  .btn:hover,.btn--primary:hover,.btn--ghost:hover,.header__cta:hover{transform:none}
+}
