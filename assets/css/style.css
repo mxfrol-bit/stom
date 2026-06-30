@@ -313,8 +313,9 @@ h1,h2,h3,.section-title,.consult h2{font-family:Manrope,Inter,sans-serif}
 .consult input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,123,246,.15)}
 /* Сообщение формы стоит НАД кнопкой «Записаться на приём», по центру */
 .form-status{margin:2px 0 10px;font-size:13px;line-height:1.45;font-weight:700;text-align:center}
-.form-status--ok{color:#1a8f4a}
-.form-status--error{color:#d23b3b}
+/* p.* — поднимаем специфичность, иначе `.consult p{color:#6b7d92}` красит статус серым */
+p.form-status--ok{color:#1a8f4a}
+p.form-status--error{color:#e01b1b;font-size:14px}
 
 /* ---------- Reveal on scroll ---------- */
 [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -486,6 +487,9 @@ body.modal-open{overflow:hidden}
   .nav__item{display:block;width:100%}
   .nav__item--has-sub::after{display:none}
   .nav__sub{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;display:block;width:auto;min-width:0;padding:2px 0 6px 14px;border:0;box-shadow:none;background:transparent;border-radius:0}
+  /* В шторке подменю всегда раскрыто и встроено в поток; гасим десктопный hover-сдвиг
+     translateX(-50%), из-за которого на тапе вкладки «выезжали» вбок за пределы меню. */
+  .nav__item--has-sub:hover .nav__sub,.nav__item--has-sub:focus-within .nav__sub{transform:none}
   .nav__sub a{display:block;white-space:normal} /* страховка: подпункты не слипаются в строку даже без .nav__sub-col */
   .nav__sub-col{display:contents}
   .nav__sub-col--more{border:0;padding:0}
@@ -655,15 +659,12 @@ body.modal-open{overflow:hidden}
 .preloader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;
   background:radial-gradient(120% 120% at 50% 35%,#ffffff 0%,#f3f9ff 60%,#eaf3fd 100%);
   /* Авто-скрытие на чистом CSS — если JS не выполнится, оверлей всё равно уйдёт */
-  animation:preloaderAuto .6s var(--ease) 2.4s forwards}
+  animation:preloaderAuto .4s var(--ease) .6s forwards}
 .preloader.is-done{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .55s var(--ease),visibility .55s var(--ease)}
 .preloader__inner{display:flex;flex-direction:column;align-items:center;gap:22px}
 .preloader__mark{position:relative;width:88px;height:88px;display:grid;place-items:center;border-radius:26px;
   background:#fff;box-shadow:0 24px 60px -28px rgba(15,82,153,.5),inset 0 0 0 1px rgba(47,123,246,.1)}
 .preloader__mark svg{width:46px;height:46px;color:var(--accent);position:relative;z-index:2}
-.preloader__mark::after{content:"";position:absolute;inset:0;border-radius:26px;overflow:hidden;
-  background:linear-gradient(115deg,transparent 30%,rgba(47,123,246,.22) 50%,transparent 70%);
-  background-size:240% 240%;animation:shimmerMove 1.8s var(--ease) infinite}
 .preloader__ring{position:absolute;inset:-9px;border-radius:32px;border:2px solid transparent;
   border-top-color:var(--accent);border-right-color:var(--accent-2);animation:spin 1s linear infinite;opacity:.85}
 .preloader__brand{font-family:Manrope,Inter,sans-serif;font-size:15px;font-weight:800;letter-spacing:.02em;color:#1f3650}

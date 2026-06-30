@@ -99,13 +99,12 @@
       pre.classList.add('is-done');
       setTimeout(function () { if (pre && pre.parentNode) pre.parentNode.removeChild(pre); }, 650);
     }
-    // показываем минимум ~450 мс ради плавности, затем прячем по полной загрузке
-    var minShown = reduce ? 0 : 450;
-    var startedHide = function () { setTimeout(hide, minShown); };
-    if (document.readyState === 'complete') { startedHide(); }
-    else { window.addEventListener('load', startedHide); }
-    // страховка: в любом случае убираем максимум через 2.3 с
-    setTimeout(hide, 2300);
+    // Прячем сразу, как только готов DOM (boot уже выполнился), не дожидаясь
+    // полной загрузки всех картинок — иначе в некоторых браузерах (Яндекс)
+    // сплэш-экран «подвисает» на переходах между страницами.
+    requestAnimationFrame(hide);
+    // страховка на случай, если rAF не сработает
+    setTimeout(hide, 1000);
   }
 
   /* ---------- Параллакс инфо-карточек баннера ---------- */
