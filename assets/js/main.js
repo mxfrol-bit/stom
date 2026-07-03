@@ -408,9 +408,9 @@
     // Конверсионный «подвал» шторки: CTA + быстрые контакты (телефон + мессенджеры).
     // TODO: заменить telegram/max на реальные ссылки на чаты клиники.
     var CONTACTS = {
-      phone: '+7 (831) 235-00-07',
-      tel: 'tel:+78312350007',
-      whatsapp: 'https://wa.me/78312350007',
+      phone: '+7 (908) 233-36-03',
+      tel: 'tel:+79082333603',
+      whatsapp: 'https://wa.me/79082333603',
       telegram: 'https://t.me/',
       max: 'https://max.ru/'
     };
@@ -732,7 +732,7 @@
           setStatus('Спасибо! Заявка отправлена — мы свяжемся с вами.', 'ok');
         })
         .catch(function () {
-          setStatus('Не удалось отправить. Позвоните нам: +7 (831) 235-00-07', 'error');
+          setStatus('Не удалось отправить. Позвоните нам: +7 (908) 233-36-03', 'error');
         })
         .finally(function () {
           if (btn) { btn.disabled = false; btn.textContent = btnText; }
