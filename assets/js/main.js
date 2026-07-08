@@ -25,6 +25,7 @@
 
   function boot() {
     initPreloader();
+    initReducedMotionVideo();
     initHeroParallax();
     initScrollFx();
     initReveal();
@@ -89,6 +90,14 @@
   } else { start(); }
 
   /* ---------- Прелоудер (скрываем по загрузке + страховочный таймаут) ---------- */
+  /* ---------- Уважаем prefers-reduced-motion: ставим фоновые видео на паузу ---------- */
+  function initReducedMotionVideo() {
+    if (!reduce) return;
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      try { v.autoplay = false; v.pause(); v.removeAttribute('autoplay'); } catch (e) {}
+    });
+  }
+
   function initPreloader() {
     var pre = document.querySelector('.preloader');
     if (!pre) return;

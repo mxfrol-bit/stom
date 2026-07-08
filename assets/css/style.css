@@ -368,13 +368,13 @@ body.nav-open .nav-overlay{opacity:1;visibility:visible}
 .counters{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 24px;margin:24px 0 28px}
 .counter strong{display:block;font-family:Manrope,Inter,sans-serif;font-size:40px;line-height:1;font-weight:800;letter-spacing:-.04em;background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .counter span{display:block;margin-top:6px;font-size:13px;font-weight:600;color:var(--muted)}
-.about__gallery{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:188px;gap:14px}
-.about__photo{margin:0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);background:#eef5fb}
+.about__gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.about__photo{margin:0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);background:#eef5fb;aspect-ratio:3/4}
 .about__photo img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
 .about__photo img.is-team{object-position:center 14%}
 .about__photo:hover img{transform:scale(1.05)}
-.about__photo--tall{grid-row:span 2}
-.about__photo--wide{grid-column:span 2}
+.about__photo--tall{grid-row:span 2;aspect-ratio:auto}
+.about__photo--wide{grid-column:span 2;aspect-ratio:16/9}
 
 /* ========== Doctor card "Подробнее" ========== */
 .doctor-card{cursor:pointer}
@@ -461,7 +461,7 @@ body.modal-open{overflow:hidden}
 }
 @media (max-width:960px){
   .about__grid{grid-template-columns:1fr;gap:28px}
-  .about__gallery{grid-template-rows:180px 180px}
+  .about__gallery{grid-template-rows:none}
   .contacts__grid{grid-template-columns:1fr;gap:24px}
   .modal__dialog{grid-template-columns:160px 1fr}
 }
@@ -519,7 +519,7 @@ body.modal-open{overflow:hidden}
 }
 
 @media (max-width:560px){
-  .about__gallery{grid-template-columns:1fr 1fr;grid-template-rows:150px 150px}
+  .about__gallery{grid-template-columns:1fr 1fr}
   .counter strong{font-size:34px}
   .services__grid{grid-template-columns:1fr}
   .arrow{display:none}
@@ -942,4 +942,26 @@ body.modal-open{overflow:hidden}
 /* На тач-устройствах кнопки не «подпрыгивают» по тапу (из-за этого срезалась верхушка) */
 @media (hover:none){
   .btn:hover,.btn--primary:hover,.btn--ghost:hover,.header__cta:hover{transform:none}
+}
+
+/* ===== Моушн-полировка: тонкие анимации (не трогают transform hover/parallax) ===== */
+@keyframes ctaGlow{0%,100%{box-shadow:0 14px 30px -12px rgba(15,130,234,.55)}50%{box-shadow:0 20px 46px -10px rgba(15,130,234,.9)}}
+.header__cta{animation:ctaGlow 3.4s var(--ease) infinite}
+.hero__actions .btn--primary{animation:ctaGlow 3.4s var(--ease) infinite}
+/* Видео-герой */
+.hero__photo video{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .8s var(--ease)}
+.hero__photo:hover video{transform:scale(1.04)}
+@keyframes kenDrift{0%{object-position:50% 42%}50%{object-position:50% 60%}100%{object-position:50% 42%}}
+.about__gallery .about__photo img{animation:kenDrift 20s ease-in-out infinite}
+.about__photo video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease)}
+.about__photo:hover video{transform:scale(1.05)}
+.service-card{position:relative;overflow:hidden}
+.service-card::after{content:"";position:absolute;top:0;left:-60%;width:45%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-18deg);opacity:0;pointer-events:none;z-index:3}
+.service-card:hover::after{opacity:1;animation:cardSheen .9s ease}
+@keyframes cardSheen{0%{left:-60%}100%{left:130%}}
+@media (prefers-reduced-motion:reduce){
+  .header__cta,.hero__actions .btn--primary,.about__gallery .about__photo img{animation:none}
+  .service-card:hover::after{animation:none;opacity:0}
 }
